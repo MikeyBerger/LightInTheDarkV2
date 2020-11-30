@@ -10,6 +10,7 @@ TagManager:
   - Quit
   - Cursor
   - Ground
+  - Light
   layers:
   - Default
   - TransparentFX
