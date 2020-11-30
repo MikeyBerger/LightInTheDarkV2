@@ -9,6 +9,7 @@ TagManager:
   - Options
   - Quit
   - Cursor
+  - Ground
   layers:
   - Default
   - TransparentFX
