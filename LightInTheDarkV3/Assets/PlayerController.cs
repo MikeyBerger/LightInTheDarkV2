@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
         LightObject.transform.Translate(new Vector2(LightMovement.x, LightMovement.y) * LightSpeed * Time.deltaTime);
 
         Flip();
+        AnimatePlayer();
+        Jump();
     }
 
     void Flip()
@@ -48,6 +50,37 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = Scale;
+    }
+    void AnimatePlayer()
+    {
+        if (PlayerMovement.x > 0 || PlayerMovement.x < 0)
+        {
+            Anim.SetBool("IsRunning", true);
+        }
+        else
+        {
+            Anim.SetBool("IsRunning", false);
+        }
+
+        if (IsGrounded == false)
+        {
+            Anim.SetBool("Grounded", false);
+        }
+        else if (IsGrounded == true)
+        {
+            Anim.SetBool("Grounded", true);
+        }
+    }
+    void Jump()
+    {
+        //RB.AddForce(Vector2.up * JumpForce);
+        //IsJumping = true;
+
+        if (IsJumping && IsGrounded)
+        {
+            RB.AddForce(Vector2.up * JumpForce);
+            IsJumping = false;
+        }
     }
 
     #region InputActions
@@ -69,4 +102,20 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            IsGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            IsGrounded = false;
+        }
+    }
 }

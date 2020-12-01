@@ -11,6 +11,8 @@ TagManager:
   - Cursor
   - Ground
   - Light
+  - Danger
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Masking
+    uniqueID: 2926102717
     locked: 0
