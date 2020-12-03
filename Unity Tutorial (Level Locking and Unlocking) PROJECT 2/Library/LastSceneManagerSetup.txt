@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Level Progression Tutortial/Main Menu.unity
+- path: Assets/Level Progression Tutortial/Level 2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -53,3 +53,9 @@ TagManager:
   - name: Masking
     uniqueID: 2926102717
     locked: 0
+  - name: Platforms
+    uniqueID: 2477531793
+    locked: 0
+  - name: Danger
+    uniqueID: 1270806719
+    locked: 0
