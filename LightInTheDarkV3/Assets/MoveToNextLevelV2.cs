@@ -13,7 +13,7 @@ public class MoveToNextLevelV2 : MonoBehaviour
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
-    public void OnTriggerEnter2D(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {

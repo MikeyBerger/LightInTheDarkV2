@@ -16,7 +16,9 @@ public class LevelSelectionV2 : MonoBehaviour
         for (int i = 0; i < Buttons.Length; i++)
         {
             if (i + 2 > levelAt)
+#pragma warning disable CS0618 // Type or member is obsolete
                 Buttons[i].active = false;
+#pragma warning restore CS0618 // Type or member is obsolete
         }
     }
 
