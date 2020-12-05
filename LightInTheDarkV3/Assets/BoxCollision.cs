@@ -15,6 +15,7 @@ public class BoxCollision : MonoBehaviour
     {
         CC = GameObject.FindGameObjectWithTag("Cursor").GetComponent<CursorController>();
         SM = GameObject.FindGameObjectWithTag("GameController").GetComponent<SceneManaging>();
+        //Index = PlayerPrefs.GetInt("levelAt");
     }
 
     // Update is called once per frame
