@@ -57,7 +57,7 @@ public class CursorController : MonoBehaviour
         }
         else if (IsPressed && collision.gameObject.tag == "Quit")
         {
-            //SceneManager.LoadScene(1); Come up with an option menu
+            
             Application.Quit();
         }
 
