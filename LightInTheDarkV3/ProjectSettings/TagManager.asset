@@ -13,6 +13,7 @@ TagManager:
   - Light
   - Danger
   - Goal
+  - Ladder
   layers:
   - Default
   - TransparentFX
