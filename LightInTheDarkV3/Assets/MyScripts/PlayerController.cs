@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed;
     public float LightSpeed;
     public float JumpForce;
+    public float LadderSpeed;
     private bool IsGrounded;
     private bool IsJumping;
     private bool FacingRight = true;
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -118,4 +120,37 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            IsGrounded = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder" && PlayerMovement.y == 0)
+        {
+            Anim.SetBool("IsStill", true);
+            Anim.SetBool("IsClimbing", false);
+        }
+        else if (collision.gameObject.tag == "Ladder" && PlayerMovement.y >= 0 || PlayerMovement.y <= 0)
+        {
+            Anim.SetBool("IsStill", false);
+            Anim.SetBool("IsClimbing", true);
+            RB.velocity = new Vector2(PlayerMovement.x, PlayerMovement.y) * LadderSpeed * Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+            Anim.SetBool("IsStill", false);
+            Anim.SetBool("IsClimbing", false);
+        }
+    }
+    #endregion
 }
