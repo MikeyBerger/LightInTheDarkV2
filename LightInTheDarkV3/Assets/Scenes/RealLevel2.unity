@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 575825849}
   - component: {fileID: 575825848}
   - component: {fileID: 575825847}
+  - component: {fileID: 575825850}
   m_Layer: 0
   m_Name: DangerTilemap
   m_TagString: Danger
@@ -868,7 +869,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!1839735485 &575825849
 Tilemap:
   m_ObjectHideFlags: 0
@@ -949,6 +950,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &575825850
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575825845}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &657879643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1178,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8991462196617678034, guid: faf60eb16d7e4486cbafcda031db35a1,
+        type: 3}
+      propertyPath: DropTimer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8991462196617678038, guid: faf60eb16d7e4486cbafcda031db35a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1164,7 +1191,7 @@ PrefabInstance:
     - target: {fileID: 8991462196617678038, guid: faf60eb16d7e4486cbafcda031db35a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6609979
+      value: 3.93
       objectReference: {fileID: 0}
     - target: {fileID: 8991462196617678038, guid: faf60eb16d7e4486cbafcda031db35a1,
         type: 3}
@@ -1211,6 +1238,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8991462197605691804, guid: faf60eb16d7e4486cbafcda031db35a1,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf60eb16d7e4486cbafcda031db35a1, type: 3}
 --- !u!1 &1248675273
@@ -1225,6 +1257,8 @@ GameObject:
   - component: {fileID: 1248675277}
   - component: {fileID: 1248675276}
   - component: {fileID: 1248675275}
+  - component: {fileID: 1248675278}
+  - component: {fileID: 1248675279}
   m_Layer: 0
   m_Name: GroundTilemap
   m_TagString: Ground
@@ -1308,7 +1342,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!1839735485 &1248675277
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1659,6 +1693,53 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1248675278
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248675273}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &1248675279
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248675273}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -8.492301, y: 2.487703}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.015398, y: 1.0245938}
+  m_EdgeRadius: 0
 --- !u!1 &1392165856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,6 +1752,7 @@ GameObject:
   - component: {fileID: 1392165859}
   - component: {fileID: 1392165858}
   - component: {fileID: 1392165860}
+  - component: {fileID: 1392165861}
   m_Layer: 0
   m_Name: LadderTilemap
   m_TagString: Ladder
@@ -1738,7 +1820,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!1839735485 &1392165859
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1875,15 +1957,36 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392165856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!50 &1392165861
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392165856}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &2098343932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,6 +2044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 927954111713323105, guid: 6d560a906e4a14425adbeada35e7a26d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 927954111713323110, guid: 6d560a906e4a14425adbeada35e7a26d,
         type: 3}

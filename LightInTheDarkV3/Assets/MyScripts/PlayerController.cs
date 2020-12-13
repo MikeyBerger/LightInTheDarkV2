@@ -12,12 +12,19 @@ public class PlayerController : MonoBehaviour
     public float LightSpeed;
     public float JumpForce;
     public float LadderSpeed;
-    private bool IsGrounded;
+    public float DropTimer;
+    public bool IsGrounded;
     private bool IsJumping;
     private bool FacingRight = true;
     private Transform LightObject;
     private Rigidbody2D RB;
     private Animator Anim;
+
+    IEnumerator StopJump()
+    {
+        yield return new WaitForSeconds(DropTimer);
+        IsJumping = false;
+    }
 
 
     // Start is called before the first frame update
@@ -80,8 +87,10 @@ public class PlayerController : MonoBehaviour
         if (IsJumping && IsGrounded)
         {
             RB.AddForce(Vector2.up * JumpForce);
+            //StartCoroutine(StopJump());
             IsJumping = false;
         }
+
     }
 
     #region InputActions
@@ -107,7 +116,7 @@ public class PlayerController : MonoBehaviour
     #region Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.name == "GroundTilemap")
         {
             IsGrounded = true;
         }
@@ -115,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.name == "GroundTilemap")
         {
             IsGrounded = false;
         }
@@ -123,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.name == "GroundTilemap")
         {
             IsGrounded = true;
         }
